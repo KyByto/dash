@@ -18,7 +18,7 @@ const body = {
 try {
     
     
-  const res = await fetch("http://localhost:3000/api/password", {
+  const res = await fetch("https://dash-r8v62i99s-kybytos-projects.vercel.app/password", {
     method: 'POST', // Specify the request method
     headers: {
       'Content-Type': 'application/json' // Specify the content type of the request body

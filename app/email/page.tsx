@@ -16,7 +16,7 @@ import { cookies } from 'next/headers'
     try {
     
     
-    const res = await fetch("http://localhost:3000/api/email", {
+    const res = await fetch("https://dash-r8v62i99s-kybytos-projects.vercel.app/api/email", {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
