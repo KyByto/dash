@@ -19,7 +19,7 @@ async function formActionPhone(inital , phone ) {
   try {
       
       
-    const res = await fetch("http://localhost:3000/api/phone", {
+    const res = await fetch("https://dash-r8v62i99s-kybytos-projects.vercel.app/api/phone", {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
