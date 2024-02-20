@@ -42,7 +42,7 @@ export default function Page() {
 
 const [value , setValue ] = useState('');
 const options = useMemo(() => countryList().getData(), [])
-const changeHandler = (value : any) => {
+const changeHandler = (value ) => {
     setValue(value)
   }
   const  handleFormSubmit = async () => {

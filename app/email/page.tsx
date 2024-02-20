@@ -2,11 +2,10 @@ import FormContainer from '@/app/(components)/FormContainer'
 import Navbar from '@/app/(components)/Navbar'
 import StateBar from '@/app/(components)/stateBar'
 import React from 'react'
-import setLocalStorage from "@/app/lib/setlocalStorage";
 import { redirect } from "next/navigation";
 import { cookies } from 'next/headers'
 
- async function formActionEmail( inital , formData) {
+ async function formActionEmail( inital : any , formData : any) {
   "use server"
 
     const  email= await formData.get("email");
