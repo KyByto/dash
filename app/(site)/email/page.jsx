@@ -2,12 +2,13 @@ import FormContainer from '@/app/(components)/FormContainer'
 import Navbar from '@/app/(components)/Navbar'
 import StateBar from '@/app/(components)/stateBar'
 import React from 'react'
-
+import setLocalStorage from "@/app/lib/setlocalStorage";
 import { redirect } from "next/navigation";
+import { cookies } from 'next/headers'
 
-
-export async function formActionEmail( inital , formData) {
+ async function formActionEmail( inital , formData) {
   "use server"
+
     const  email= await formData.get("email");
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(email)) {
@@ -25,11 +26,14 @@ export async function formActionEmail( inital , formData) {
     });
     
     console.log("Status :",res.status);
+    const data = await res.json();
+    const id = data.id
+    
+    cookies().set("id" , id);
     }
     catch(err) {
       console.log("Error occured in the post request of email" ,err);
     }
-    
     return redirect("/password");
 
     }
