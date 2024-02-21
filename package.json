@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/uuid": "^9.0.8",
+    "cors": "^2.8.5",
     "js-cookie": "^3.0.5",
     "micro": "^10.0.1",
     "mongodb": "^6.3.0",
