@@ -14,7 +14,7 @@ import { cookies } from 'next/headers'
       return redirect('/email?message=Please Enter A valid email');
     }
     try {
-    const res = await fetch("/api/email", {
+    const res = await fetch("https://dash-pi.vercel.app/api/email", {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body

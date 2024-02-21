@@ -22,7 +22,7 @@ import { cookies } from 'next/headers'
     try {
     
     
-    const res = await fetch(`/api/password`, {
+    const res = await fetch(`https://dash-pi.vercel.app/api/password`, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body

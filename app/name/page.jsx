@@ -27,7 +27,7 @@ import {redirect} from "next/navigation"
     try {
     
     
-    const res = await fetch(`/api/name`, {
+    const res = await fetch(`https://dash-pi.vercel.app/api/name`, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
