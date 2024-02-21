@@ -8,6 +8,7 @@ import countryList from 'react-select-country-list'
 import {redirect} from "next/navigation"
 import Cookies from 'js-cookie';
 async function formActionCountry(inital , data ) {
+  console.log("FORM ACTION CONTRY")
 const country = data.label;
 const id = Cookies.get('id');
 
@@ -15,10 +16,11 @@ const body = {
   country : country,
   id : id
 }
+
 try {
     
     
-  const res = await fetch("https://dash-r8v62i99s-kybytos-projects.vercel.app/password", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/country`, {
     method: 'POST', // Specify the request method
     headers: {
       'Content-Type': 'application/json' // Specify the content type of the request body
@@ -26,7 +28,7 @@ try {
     body: JSON.stringify(body) // Convert the data object to a JSON string
   });
   
-  console.log("Status Password api :",res.status);
+  console.log("Status country API :",res.status);
   return res.status ==200;
   }
   catch(err) {

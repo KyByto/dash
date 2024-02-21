@@ -13,6 +13,6 @@ import {connectDB}  from "@/app/config/db";
     }
    
 
-    return Response.redirect("/phone")
+    return Response.json({message : "User has a country !!"})
     
 }
