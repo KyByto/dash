@@ -14,9 +14,9 @@ import { cookies } from 'next/headers'
       return redirect('/email?message=Please Enter A valid email');
     }
     try {
-    
-    console.log("PROCESS ENV IS :" , process.env.NEXT_PUBLIC_URL);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/email`, {
+    const urlFetch = `${process.env.NEXT_PUBLIC_URL}/api/email`
+    console.log(urlFetch);
+    const res = await fetch(urlFetch, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
