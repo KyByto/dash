@@ -15,7 +15,7 @@ import { cookies } from 'next/headers'
     }
     try {
     
-    
+    console.log("PROCESS ENV IS :" , process.env.NEXT_PUBLIC_URL);
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/email`, {
       method: 'POST', // Specify the request method
       headers: {
