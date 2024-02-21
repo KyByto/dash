@@ -20,7 +20,7 @@ const body = {
 try {
     
     
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/country`, {
+  const res = await fetch(`/api/country`, {
     method: 'POST', // Specify the request method
     headers: {
       'Content-Type': 'application/json' // Specify the content type of the request body
