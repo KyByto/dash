@@ -1,7 +1,7 @@
 // db.js
 import mongoose from 'mongoose';
 
-const dbURI = process.env.DB_URI;
+const dbURI = process.env.MONGODB_URI;
 
 
 export async function  connectDB   ()  {
