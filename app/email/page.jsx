@@ -40,7 +40,7 @@ export default function page() {
   return (
     <div className='flex-col flex items-center  ' >
         <Navbar className={`flex gap-[5%]  items-center lg:text-[22px] w-[100%] `} imageClassName='hidden sm:block'>
-            <StateBar width="2%"  /> 
+            <StateBar width="2%" oldWidth='0%'  /> 
         </Navbar>
         <FormContainer
 formAction={formActionEmail}

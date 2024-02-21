@@ -57,7 +57,7 @@ const changeHandler = (value ) => {
   return (
     <div className='flex-col flex items-center  ' >
         <Navbar className={`flex gap-[5%]  items-center lg:text-[22px] w-[100%] `} imageClassName='hidden sm:block'>
-            <StateBar width="73%"  /> 
+            <StateBar width="73%" oldWidth='49%' /> 
         </Navbar>
         <FormContainer formAction={handleFormSubmit} buttonText='Next' legend='' Header='Where do you come from ?' className='' >
         <Select className="" options={options} value={value} onChange={changeHandler} />

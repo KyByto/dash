@@ -55,7 +55,7 @@ export default function Page() {
   return (
     <div className='flex-col flex items-center  ' >
         <Navbar className={`flex gap-[5%]  items-center lg:text-[22px] w-[100%] `} imageClassName='hidden sm:block'>
-            <StateBar width="97%"  /> 
+            <StateBar width="97%" oldWidth='73%'  /> 
         </Navbar>
        
         <FormContainer formAction={handleFormSubmit} buttonText='Next' legend='It must contain at least 6 digits ' Header='We might need your phone number' className='' >

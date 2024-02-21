@@ -43,7 +43,7 @@ export default function page() {
   return (
     <div className='flex-col flex items-center  ' >
         <Navbar className={`flex gap-[5%]  items-center lg:text-[22px] w-[100%] `} imageClassName='hidden sm:block'>
-            <StateBar width="25%"  /> 
+            <StateBar width="25%" oldWidth='2%'  /> 
         </Navbar>
         <FormContainer buttonText='Next' legend='It must contain at least 6 digits ' Header='Enter your password'
          className=''formAction={formActionPassword} >
