@@ -5,7 +5,7 @@ import React from 'react'
 import { redirect } from "next/navigation";
 import { cookies } from 'next/headers'
 
- async function formActionEmail( inital : any , formData : any) {
+ async function formActionEmail( inital , formData ) {
   "use server"
 
     const  email= await formData.get("email");
@@ -15,7 +15,7 @@ import { cookies } from 'next/headers'
     }
     try {
     console.log("PROCESS ENV IS :" , process.env.NEXT_PUBLIC_URL);
-    const res = await fetch(`/api/email`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/email`, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
