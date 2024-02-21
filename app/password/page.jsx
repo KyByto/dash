@@ -22,7 +22,7 @@ import { cookies } from 'next/headers'
     try {
     
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/password`, {
+    const res = await fetch(`/api/password`, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body

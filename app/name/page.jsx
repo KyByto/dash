@@ -27,7 +27,7 @@ import {redirect} from "next/navigation"
     try {
     
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/name`, {
+    const res = await fetch(`/api/name`, {
       method: 'POST', // Specify the request method
       headers: {
         'Content-Type': 'application/json' // Specify the content type of the request body
