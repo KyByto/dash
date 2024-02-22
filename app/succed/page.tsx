@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function page() {
   return (
-    <div className={`${poppins.className} h-[100vh] bg-[#00569E] flex items-center justify-center flex-col gap-7 `}>
+    <div className={`${poppins.className} py-10 bg-[#00569E] flex items-center justify-center flex-col gap-7 `}>
       <h1 className="text-white text-[60px]">
         <span className="block text-center leading-10">SUCCESS!</span>
         <span>YOU ARE REGISTERED</span>
