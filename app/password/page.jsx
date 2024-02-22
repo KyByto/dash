@@ -7,9 +7,8 @@ import { cookies } from 'next/headers'
  async function formActionPassword( inital , formData) {
   "use server"
   const cookieStore = cookies();
-  const idObj = cookieStore.get('id')
+  const id = cookieStore.get('id')
 
-  const id = idObj.value;
   console.log("Id trouvé" , id)
     const  password= await formData.get("password");
     if((password.length < 5 )) {
