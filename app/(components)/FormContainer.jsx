@@ -33,18 +33,15 @@ export default function FormContainer({className , Header , legend , buttonText 
 
 
       function handleIsLoading() {
-        setTransitionInLeft(true);
-
         setTimeout(() => {
-          setIsLoading(true);
-
-        }, 400);
+          setTransitionInLeft(true);
+console.log("1")
+        }, 1000);
+        setIsLoading(true);
+console.log("2");
+       
       }
-  return isLoading ? (
-    <div className='flex justify-center items-center h-[85vh]'>
-<Skeleton animation="wave" variant="rounded" width="50vw" height="70vh" borderRadius={16} className='relative' />
-</div> 
-  ) : (
+  return  (
     <div className={`${poppins.className} ${className}  flex-col flex items-center p-20 w-[100%]  transition-all duration-500 transform
     sm:w-[80%]  h-[85vh] gap-10  `}
     style={{ marginLeft: transitionInRight ? "0" : "200vw" , marginRight : transitionInLeft ? "200vw" : "0vw" }}
@@ -62,7 +59,7 @@ export default function FormContainer({className , Header , legend , buttonText 
 {children}
 </div>
 
-         <button  type="submit" className={`mt-10 bg-[#00569E] rounded-2xl py-3 text-[22px] lg:text-[30px] text-white lg:py-4 ${isLoading ? "opacity-50" : ""}`}>{buttonText}</button>
+         <button   type="submit" className={`mt-10 bg-[#00569E] rounded-2xl py-3 text-[22px] lg:text-[30px] text-white lg:py-4 ${isLoading ? "opacity-50" : ""}`}>{buttonText}</button>
      </form>
      <Image src={mascot} alt="mascot " width={100} className="lg:w-[120px] self-start"/>
  
