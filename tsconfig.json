@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/succed", "app/country/page.jsx", "app/email/page.jsx", "app/(components)/FormContainer.jsx", "app/api/email/route.js", "app/libs/util.jsx", "app/password/page.jsx", "app/phone/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/succed", "app/country/page.jsx", "app/email/page.jsx", "app/(components)/FormContainer.jsx", "app/api/email/route.js", "app/libs/util.jsx", "app/password/page.jsx", "app/phone/page.jsx", "middleware.js", "app/api/middleware/password/route.js", "app/api/middleware/country/route.js", "app/api/middleware/phone/route.js"],
   "exclude": ["node_modules"]
 }

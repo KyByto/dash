@@ -5,10 +5,9 @@ import React from 'react'
 import { redirect } from "next/navigation";
 import { cookies } from 'next/headers'
 
- async function formActionEmail( inital , formData ) {
+ async function formActionEmail(email) {
   "use server"
-
-    const  email= await formData.get("email");
+  let status;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(email)) {
       return redirect('/email?message=Please Enter A valid email');
@@ -24,16 +23,27 @@ import { cookies } from 'next/headers'
     });
     
     console.log("Status :",res.status);
+    status = res.status;
     const data = await res.json();
     const id = data.id
     
     cookies().set("id" , id);
-    }
-    catch(err) {
-      console.log("Error occured in the post request of email" ,err);
-    }
-    return redirect("/password");
 
+}
+    catch(err) {
+      console.log("Error occured" , err);
+    }
+console.log("Status is ," , status)
+if(status ==200) {
+  return redirect("/password");
+}
+
+else if(status == 401) {
+  return "Email already exists. Please enter a different email."
+}
+else {
+  return "An error occured. Please try again ."
+}
     }
 
 export default function page() {
@@ -43,6 +53,9 @@ export default function page() {
             <StateBar width="2%" oldWidth='0%'  /> 
         </Navbar>
         <FormContainer
+                beforeLink="/"
+
+        name="email"
 formAction={formActionEmail}
          buttonText='Continue'
           legend='First, enter your email address' 

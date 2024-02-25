@@ -5,7 +5,12 @@ import {connectDB}  from "@/app/config/db";
     connectDB();
     const body = await req.json();
     try {
-        await Users.findOneAndUpdate({id : body.id} , {name : body.name});
+  const user = await Users.findOne({id : body.id.value} );
+if(!user)     return Response.json({message : "User has now a name " } , {status:404});
+
+user.name = body.name;
+await Users.updateOne({id : body.id.value} , user);
+
 
     }
     catch(err) {

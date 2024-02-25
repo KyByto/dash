@@ -8,7 +8,7 @@ import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import Cookies from 'js-cookie';
 
-async function formActionPhone(inital , phone ) {
+async function formActionPhone( phone ) {
   
   const id = Cookies.get('id');
   
@@ -16,6 +16,7 @@ async function formActionPhone(inital , phone ) {
     phone : phone,
     id : id
   }
+  let status;
   try {
       
       
@@ -28,13 +29,19 @@ async function formActionPhone(inital , phone ) {
     });
     
     console.log("Status Phone api :",res.status);
-    return res.status ==200;
+    status =res.status;
     }
     catch(err) {
       console.log("Error occured in the post request of password : \n" ,err);
-      return false;
+      
     }
-  
+  if(status == 200) {
+return redirect("/succed")
+
+  }
+  else {
+return redirect("/email?message=Please enter your email again");
+  }
   
     }
   
@@ -46,10 +53,8 @@ export default function Page() {
     }
     const  handleFormSubmit = async () => {
       // Pass the selected country to the formActionCountry function
-    const success =  await formActionPhone(null,  phone );
-    if(success) {
-      redirect("/succed")
-    } 
+    const success =  await formActionPhone( phone );
+   
   };
 
   return (
@@ -58,7 +63,10 @@ export default function Page() {
             <StateBar width="97%" oldWidth='73%'  /> 
         </Navbar>
        
-        <FormContainer formAction={handleFormSubmit} buttonText='Next' legend='It must contain at least 6 digits ' Header='We might need your phone number' className='' >
+        <FormContainer
+                beforeLink="/country"
+
+         formAction={handleFormSubmit} buttonText='Next' legend='It must contain at least 6 digits ' Header='We might need your phone number' className='' >
     <PhoneInput
     style={{
         '--react-international-phone-font-size': '30px' ,

@@ -7,8 +7,7 @@ import Select  from 'react-select'
 import countryList from 'react-select-country-list'
 import {redirect} from "next/navigation"
 import Cookies from 'js-cookie';
-async function formActionCountry(inital , data ) {
-  console.log("FORM ACTION CONTRY")
+async function formActionCountry(  data ) {
 const country = data.label;
 const id = Cookies.get('id');
 
@@ -16,7 +15,7 @@ const body = {
   country : country,
   id : id
 }
-
+let status;
 try {
     
     
@@ -29,13 +28,18 @@ try {
   });
   
   console.log("Status country API :",res.status);
-  return res.status ==200;
-  }
+status = res.status;
+}
   catch(err) {
     console.log("Error occured in the post request of password : \n" ,err);
-    return false;
+    
   }
-
+if(status ==200) {
+  return redirect("/phone")
+}
+else {
+  return redirect("/email?message=Please enter your email again");
+}
 
   }
 
@@ -49,17 +53,18 @@ const changeHandler = (value ) => {
   }
   const  handleFormSubmit = async () => {
     // Pass the selected country to the formActionCountry function
-  const success =  await formActionCountry(null,  value );
-  if(success) {
-    redirect("/phone")
-  } 
+  const success =  await formActionCountry (value );
+  
 };
   return (
     <div className='flex-col flex items-center  ' >
         <Navbar className={`flex gap-[5%]  items-center lg:text-[22px] w-[100%] `} imageClassName='hidden sm:block'>
             <StateBar width="73%" oldWidth='49%' /> 
         </Navbar>
-        <FormContainer formAction={handleFormSubmit} buttonText='Next' legend='' Header='Where do you come from ?' className='' >
+        <FormContainer
+        beforeLink="/name"
+        name="country"
+        formAction={handleFormSubmit} buttonText='Next' legend='' Header='Where do you come from ?' className='' >
         <Select className="" options={options} value={value} onChange={changeHandler} />
             </FormContainer>
         
